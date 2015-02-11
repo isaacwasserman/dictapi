@@ -3,7 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var routes = require('./routes/def');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/messages');
