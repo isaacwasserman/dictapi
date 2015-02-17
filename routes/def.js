@@ -13,10 +13,11 @@ router.get('/:word', function(req, res) {
       $('.def-set').each(function(i, element){
         var definition = $(this).text().replace("(", "").replace(")", "");
         console.log(word + ": " + definition);
-        res.render('def', {title: "Definition of:" + word, word: word, definition: definition});
+        res.render('def', {title: "Definition of: " + word, word: word, definition: definition});
       });
     }
   });
+  
 });
  
 module.exports = router;
