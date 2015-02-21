@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
+  "name": "dictapi",
+  "version": "0.0.1",
+  "description": "A simple api for retrieving definitions",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -9,9 +9,9 @@
   "dependencies": {
     "express": "~4.9.x",
     "body-parser": "~1.8.1",
-    "mongoose": "3.8.x",
     "jade": "1.8.x",
-    "morgan": "1.5.x"
+    "cheerio": "0.18.0",
+    "request": "2.53.0"
   },
   "engines": {
     "node": "0.10.x"
