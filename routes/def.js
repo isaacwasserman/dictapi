@@ -46,6 +46,46 @@ router.get('/:word', function(req, res) {
         }
       });
     },
+    
+    pos: function(callback){
+      request('http://dictionary.reference.com/browse/' + word, function (error, response, html) {
+        if (!error && response.statusCode == 200) {
+          var $ = cheerio.load(html);
+          var pos  = [];
+          var $pos = $('.def-pbk .luna-data-header .dbox-pg');
+
+          for(var x = 0; x < $pos.length; x++) {
+            //console.log($definitions[x]);
+            p = $($pos[x]).text().replace("(", "").replace(")", "");
+            pos.push(p);
+          }
+          
+//          console.log(pos);
+          
+          callback(null, pos);
+        }
+      });
+    },
+    
+    sentence: function(callback){
+      request('http://sentence.yourdictionary.com/' + word, function (error, response, html) {
+        if (!error && response.statusCode == 200) {
+          var $ = cheerio.load(html);
+          var sentences  = [];
+          var $sentences = $('.main-row .examples .voting_li .li_content');
+
+          for(var x = 0; x < $sentences.length; x++) {
+            sen = $($sentences[x]).text().replace("(", "").replace(")", "");
+            sentences.push(sen);
+          }
+          
+          //console.log(sentences);
+          
+          callback(null, sentences);
+        }
+      });
+    },
+    
     thesaurus: function(callback){
       request('http://www.thesaurus.com/browse/' + word, function (error, response, html) {
         if (!error && response.statusCode == 200) {
@@ -58,7 +98,18 @@ router.get('/:word', function(req, res) {
             s = $($synonyms[x]).text().replace("(", "").replace(")", "");
             synonyms.push(s);
           }
-          callback(null, synonyms);
+          
+          var antonyms = [];
+          var $antonyms = $('.antonyms .list-holder .list li a .text');
+          
+          for(var x = 0; x < $antonyms.length; x++) {
+            a = $($antonyms[x]).text().replace("(", "").replace(")", "");
+            antonyms.push(a);
+          }
+          
+          var fullthesaurus = [synonyms, antonyms];
+          
+          callback(null, fullthesaurus);
         }
       });
     }
@@ -68,10 +119,24 @@ router.get('/:word', function(req, res) {
     var def2 = results.definition.slice(1,2).toString();
     var def3 = results.definition.slice(2,3).toString();
     
+    var pos = results.pos;
     
+    var sentences = results.sentence;
+    var howmanysentences = function(){
+      if(sentences.length > 5){
+        var number = 5;
+        return(number);
+      }
+      else{
+        return(sentences.length);
+      }
+    }
+    var sentences = sentences.slice(0,howmanysentences());
     
-    console.log(results.thesaurus);
-    res.render('def', { word: word, def1: def1, def2: def2, def3: def3, synonyms: results.thesaurus });
+    var synonyms = results.thesaurus[0];
+    var antonyms = results.thesaurus[1];
+    
+    res.render('def', { word: word, def1: def1, def2: def2, def3: def3, synonyms: synonyms, antonyms: antonyms, pos:pos, sentences:sentences});
   });
 });
  

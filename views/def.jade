@@ -1,12 +1,27 @@
 html
   head
   body
-    h1= word
-    ul
-      li= def1
-      li= def2
-      li= def3
-    br
-    ul
-      for synonyms in synonyms
-        li= synonyms
+    h1#word= word
+    
+    
+    div#data
+      ul#definitions
+        li= def1
+        li= def2
+        li= def3
+
+      ul#synonyms
+        for synonym in synonyms
+          li= synonym
+
+      ul#antonyms
+        for antonym in antonyms
+          li= antonym
+
+      ul#partsofspeech
+        for part in pos
+          li= part
+
+      ul#sentences
+        for sentence in sentences
+          li= sentence
