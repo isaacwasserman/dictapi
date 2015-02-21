@@ -39,8 +39,10 @@ router.get('/:word', function(req, res) {
           if(def3.indexOf(":") !== -1){
             var def3 = def3.substring(0,def3.indexOf(":"));
           }
-
-          callback(null, def1);
+          
+          var defarray = [def1, def2, def3];
+          
+          callback(null, defarray);
         }
       });
     },
@@ -48,22 +50,28 @@ router.get('/:word', function(req, res) {
       request('http://www.thesaurus.com/browse/' + word, function (error, response, html) {
         if (!error && response.statusCode == 200) {
           var $ = cheerio.load(html);
-          var definitions  = [];
-          var $definitions = $('.def-set');
+          var synonyms  = [];
+          var $synonyms = $('.relevancy-list ul li a .text');
 
-          for(var x = 0; x < $definitions.length; x++) {
-            //console.log($definitions[x]);
-            d = $($definitions[x]).text().replace("(", "").replace(")", "");
-            definitions.push(d);
+          for(var x = 0; x < $synonyms.length; x++) {
+            //console.log(synonyms[x]);
+            s = $($synonyms[x]).text().replace("(", "").replace(")", "");
+            synonyms.push(s);
           }
-          callback(null, definitions);
+          callback(null, synonyms);
         }
       });
     }
   },
   function(err, results) {
-    console.log(results);
-    res.render('def', results.thesaurus);
+    var def1 = results.definition.slice(0,1).toString();
+    var def2 = results.definition.slice(1,2).toString();
+    var def3 = results.definition.slice(2,3).toString();
+    
+    
+    
+    console.log(results.thesaurus);
+    res.render('def', { word: word, def1: def1, def2: def2, def3: def3, synonyms: results.thesaurus });
   });
 });
  
