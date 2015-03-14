@@ -1,12 +1,14 @@
 var init = function(){
   console.log("Page Loaded");
   var body = document.getElementsByTagName('body')[0];
+  console.log(document.getElementById('six').innerHTML);
 }
 
 var addinputs = function(){
   var grade = document.getElementById('grade').value;
   document.getElementById('grade').style.display = 'none';
   document.getElementById('submit-grade').style.display = 'none';
+  document.getElementById('listnum').style.display = 'inline';
   if(grade == "6th"){
     document.getElementById('six').style.display = 'inline';
     document.getElementById('submit').style.display = 'inline';
@@ -59,9 +61,11 @@ var gather = function(){
   
   var framediv = document.getElementById('frames');
   var newframe = document.createElement('iframe');
+  var listnum = document.getElementById('listnum').value;
+  document.getElementById('frameinfo').style.display = 'inline';
   
   for (var i = 1; i < words.length + 1; i++) {
-    document.getElementById('frame' + i).setAttribute('src', '/' + words[i-1]);
+    document.getElementById('frame' + i).setAttribute('src', '/' + words[i-1] + '?list=' + listnum);
     document.getElementById('frame' + i).style.display = 'inline';
     document.getElementsByTagName('iframe')[i-1].style.height = '1094px';
     document.getElementsByTagName('iframe')[i-1].style.width = '844px';

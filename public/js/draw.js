@@ -1,17 +1,39 @@
-var init = function(){  
+
+  function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    console.log('Query variable %s not found', variable);
+  }
+
+var init = function(){
+  listnum = getQueryVariable('list');
+  word = $('#word').text();
+  defs = $('#definitions li').each( function(){ console.log($(this).text()); });
+  syns = $('#synonyms li').each( function(){ console.log($(this).text()); });
+  ants = $('#antonyms li').each( function(){ console.log($(this).text()); });
+  pos = $('#partsofspeech li').each( function(){ console.log($(this).text()); });
+  sents = $('#sentences li').each( function(){ console.log($(this).text()); });
+
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   ctx.font = 'normal 15pt sans-serif';
   // Our text box
   var defbox = {
-      'x': 280,
+      'x': 440,
       'y': 285,
       'width': 320,
       'height': 69
   }
-
+  ctx.textAlign="center";
   // Our text
-  var deftext = "Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah.";
+  var def1loc = defs.text().indexOf('.') + 1;
+  var deftext = defs.text().substring(0, def1loc).replace(';', ',').replace(';', ',');
 
   var textWidth = ctx.measureText(deftext).width;
   // I'm assuming it's our text height is 10, you can change this appropriately
@@ -51,9 +73,9 @@ var init = function(){
       'width': 565,
       'height': 69
   }
-
+  ctx.textAlign="left";
   // Our text
-  var senttext = "Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah.";
+  var senttext = sents.slice(0,1).text();
 
   var textWidth = ctx.measureText(senttext).width;
   // I'm assuming it's our text height is 10, you can change this appropriately
@@ -86,29 +108,28 @@ var init = function(){
       ctx.fillText(splitString[i], textX , textY );
   }
   
-  var listnum = '18';
+  
   ctx.fillText(listnum,415,115);
   
-  var word = 'Word';
   ctx.textAlign="center";
   ctx.fillText(word,425,195);
   
-  var pos = 'noun';
+  var pos = pos.slice(0,1).text();
   ctx.fillText(pos,440,435);
   
   ctx.textAlign="left";
-  var syn1 = 'phrase';
+  var syn1 = syns.slice(0,1).text();
   ctx.fillText(syn1,200,800);
-  var syn2 = 'thing';
+  var syn2 = syns.slice(1,2).text();
   ctx.fillText(syn2,200,825);
-  var syn3 = 'kk';
+  var syn3 = syns.slice(2,3).text();
   ctx.fillText(syn3,200,850);
   
-  var ant1 = 'not-phrase';
+  var ant1 = ants.slice(0,1).text();
   ctx.fillText(ant1,495,800);
-  var ant2 = 'not-thing';
+  var ant2 = ants.slice(1,2).text();
   ctx.fillText(ant2,495,825);
-  var ant3 = 'not-kk';
+  var ant3 = ants.slice(2,3).text();
   ctx.fillText(ant3,495,850);
   
 }

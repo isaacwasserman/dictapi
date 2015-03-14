@@ -115,9 +115,9 @@ router.get('/:word', function(req, res) {
     }
   },
   function(err, results) {
-    var def1 = results.definition.slice(0,1).toString();
-    var def2 = results.definition.slice(1,2).toString();
-    var def3 = results.definition.slice(2,3).toString();
+    var def1 = results.definition.slice(0,1).toString().substring(1);
+    var def2 = results.definition.slice(1,2).toString().substring(1);
+    var def3 = results.definition.slice(2,3).toString().substring(1);
     
     var pos = results.pos;
     
