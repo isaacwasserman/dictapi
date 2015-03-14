@@ -3,7 +3,8 @@ var router  = express.Router();
 
 
 router.get('/', function(req, res) {
-  res.render('upload');
+//  res.render('upload');
+  res.json('Isaac');
 });
 
 module.exports = router;
