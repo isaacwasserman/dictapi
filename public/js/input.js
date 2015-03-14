@@ -24,17 +24,6 @@ var addinputs = function(){
   }
 }
 
-var addframes = function(){
-  var words = gather();
-  for (var i = 0; i < words.length; i++) {
-    var body = document.getElementById('frames');
-    var newframe = document.createElement('div');
-    newframe.setAttribute('id', 'frame' + i);
-    newframe.setAttribute('src', '/' + words[i]);
-    body.appendChild(newframe);
-    console.log('Added Frame ' + i);
-  }
-}
 
 
 var gather = function(){
@@ -64,15 +53,18 @@ var gather = function(){
     words.push(document.getElementById('input-19').value);
     words.push(document.getElementById('input-20').value);
   }
-  console.log(words.length);
+  console.log(words);
+  
+  document.getElementById('words').style.display = 'none';
+  
   var framediv = document.getElementById('frames');
   var newframe = document.createElement('iframe');
   
-  for (var i = 0; i < words.length; i++) {
-    var wordroute = '/' + words[i];
-    newframe.setAttribute('id', 'frame' + i);
-    newframe.setAttribute('src', 'wordroute');
-    framediv.appendChild(newframe);
-    console.log('Added Frame ' + i);
+  for (var i = 1; i < words.length + 1; i++) {
+    document.getElementById('frame' + i).setAttribute('src', '/' + words[i-1]);
+    document.getElementById('frame' + i).style.display = 'inline';
+    document.getElementsByTagName('iframe')[i-1].style.height = '1094px';
+    document.getElementsByTagName('iframe')[i-1].style.width = '844px';
+    console.log("The word is " + words[i-1]);
   }
 }

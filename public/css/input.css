@@ -1,8 +1,12 @@
-
 #six, #seven, #eight {
   display: none;
 }
 
 #submit {
+  display:none;
+}
+
+#frames iframe {
+  
   display:none;
 }
