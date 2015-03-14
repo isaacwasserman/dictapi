@@ -141,3 +141,5 @@ router.get('/:word', function(req, res) {
 });
  
 module.exports = router;
+
+var express = require('express');

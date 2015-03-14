@@ -1,10 +1,14 @@
 html
   head
+    link(rel="stylesheet" href="css/pagestyle.css")
   body
-    h1#word= word
     
+    //canvas(id="mycanvas", width="422", height="547")
+    script(src="js/draw.js")
     
     div#data
+      
+      h1#word= word
       ul#definitions
         li= def1
         li= def2

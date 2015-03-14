@@ -12,14 +12,15 @@
     "jade": "1.8.x",
     "cheerio": "0.18.0",
     "request": "2.53.0",
-    "async": "0.9.*"
+    "async": "0.9.*",
+    "nodefu": "1.1.x"
   },
   "engines": {
     "node": "0.10.x"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zeekw/USaidIt"
+    "url": "https://github.com/zeekw/dictapi"
   },
   "keywords": [
     "node",

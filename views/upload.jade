@@ -1,0 +1,56 @@
+html
+  head
+    script(src="js/input.js")
+    link(rel="stylesheet", href="css/input.css")
+  body(onload="init();")
+    select(id="grade")
+      option(value="6th") 6th
+      option(value="7th") 7th
+      option(value="8th") 8th
+    input#submit-grade(type="button" value="Go" onclick="addinputs();")
+    form(id="words")
+      div#six
+        input(id="input-1", type="text")
+        br
+        input(id="input-2", type="text")
+        br
+        input(id="input-3", type="text")
+        br
+        input(id="input-4", type="text")
+        br
+        input(id="input-5", type="text")
+        br
+        input(id="input-6", type="text")
+        br
+        input(id="input-7", type="text")
+        br
+        input(id="input-8", type="text")
+        br
+        input(id="input-9", type="text")
+        br
+        input(id="input-10", type="text")
+        br
+      div#seven
+        input(id="input-11", type="text")
+        br
+        input(id="input-12", type="text")
+        br
+        input(id="input-13", type="text")
+        br
+        input(id="input-14", type="text")
+        br
+        input(id="input-15", type="text")
+        br
+      div#eight
+        input(id="input-16", type="text")
+        br
+        input(id="input-17", type="text")
+        br
+        input(id="input-18", type="text")
+        br
+        input(id="input-19", type="text")
+        br
+        input(id="input-20", type="text")
+        br
+      input#submit(type="button", value="Submit", onclick="gather();")
+    div(id="frames")
