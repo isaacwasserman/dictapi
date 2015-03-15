@@ -22,13 +22,8 @@ var addinputs = function(){
   document.getElementById('grade').style.display = 'none';
   document.getElementById('submit-grade').style.display = 'none';
   document.getElementById('listnum').style.display = 'inline';
-  if(grade == "6th"){
+  if(grade == "6th" || grade == "7th"){
     document.getElementById('six').style.display = 'inline';
-    document.getElementById('submit').style.display = 'inline';
-  }
-  if(grade == "7th"){
-    document.getElementById('six').style.display = 'inline';
-    document.getElementById('seven').style.display = 'inline';
     document.getElementById('submit').style.display = 'inline';
   }
   if(grade == "8th"){
@@ -54,14 +49,12 @@ var gather = function(){
   words.push(document.getElementById('input-8').value);
   words.push(document.getElementById('input-9').value);
   words.push(document.getElementById('input-10').value);
-  if(grade == '7th' || grade == '8th'){
+  if(grade == '8th'){
     words.push(document.getElementById('input-11').value);
     words.push(document.getElementById('input-12').value);
     words.push(document.getElementById('input-13').value);
     words.push(document.getElementById('input-14').value);
     words.push(document.getElementById('input-15').value);
-  }
-  if(grade == '8th'){
     words.push(document.getElementById('input-16').value);
     words.push(document.getElementById('input-17').value);
     words.push(document.getElementById('input-18').value);
