@@ -1,11 +1,24 @@
 var init = function(){
   console.log("Page Loaded");
   var body = document.getElementsByTagName('body')[0];
-  console.log(document.getElementById('six').innerHTML);
+  
 }
+
+var myprint = function(){
+    if (confirm("When printing make sure you turn off header and footer text, and turn on background images. Otherwise this will not look legit.") == true) {
+        document.getElementById('frameinfo').style.display = 'none';
+        document.body.style.backgroundImage = 'none';
+        document.body.style.margin = '0px';
+        print();
+        document.getElementById('frameinfo').style.display = 'inline';
+        document.body.style.backgroundImage = 'url(http://raritea.com/raritea/images/heartless.gif)';
+        document.body.style.margin = '8px'; 
+    }
+  }
 
 var addinputs = function(){
   var grade = document.getElementById('grade').value;
+  document.getElementById('first').style.display = 'none';
   document.getElementById('grade').style.display = 'none';
   document.getElementById('submit-grade').style.display = 'none';
   document.getElementById('listnum').style.display = 'inline';

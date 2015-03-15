@@ -7,14 +7,18 @@ html
     script(src="js/jspdf.plugin.split_text_to_size.js")
     script(src="js/jspdf.plugin.standard_fonts_metrics.js")
     link(rel="stylesheet", href="css/input.css")
+    link(rel="stylesheet", href="css/fonts.css")
     link(rel='icon', href='http://raritea.com/raritea/images/logo.ico')
   body(onload="init();")
     div#first
+      //div#header
+        img(src="images/fsmh.png")
       select(id="grade")
         option(value="6th") 6th
         option(value="7th") 7th
         option(value="8th") 8th
       input#submit-grade(type="button" value="Go" onclick="addinputs();")
+      p Please Select Your Grade
     form(id="words")
       div#wordcontain
         input(id="listnum", type="number", placeholder="List #")
@@ -112,4 +116,6 @@ html
           span FSMH Vocab
           span &reg;
           span  does not currently support Roots, Prefixes or Suffixes
+          div#print
+            img#printimg(src="images/print.png" onclick="myprint();")
           
