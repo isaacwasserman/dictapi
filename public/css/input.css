@@ -1,7 +1,10 @@
 body {
+/*
   background: url(http://raritea.com/raritea/images/heartless.gif);
   background-size: cover;
   background-repeat: no-repeat;
+*/
+  background: #336699;
 }
 
 #header {
