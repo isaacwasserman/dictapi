@@ -26,6 +26,10 @@ var addinputs = function(){
     document.getElementById('six').style.display = 'inline';
     document.getElementById('submit').style.display = 'inline';
   }
+  if(grade == "7th"){
+    document.getElementById('seven').style.display = 'inline';
+    document.getElementById('submit').style.display = 'inline';
+  }
   if(grade == "8th"){
     document.getElementById('six').style.display = 'inline';
     document.getElementById('seven').style.display = 'inline';
@@ -49,6 +53,13 @@ var gather = function(){
   words.push(document.getElementById('input-8').value);
   words.push(document.getElementById('input-9').value);
   words.push(document.getElementById('input-10').value);
+  if(grade == '7th'){
+    words.push(document.getElementById('input-11').value);
+    words.push(document.getElementById('input-12').value);
+    words.push(document.getElementById('input-13').value);
+    words.push(document.getElementById('input-14').value);
+    words.push(document.getElementById('input-15').value);
+  }
   if(grade == '8th'){
     words.push(document.getElementById('input-11').value);
     words.push(document.getElementById('input-12').value);
