@@ -1,7 +1,7 @@
 var init = function(){
   console.log("Page Loaded");
   var body = document.getElementsByTagName('body')[0];
-  document.getElementsByTagName('body')[0].style.backgroundColor = color;
+  document.getElementsByTagName('body')[0].style.backgroundColor = randomcolor;
 }
 
 var myprint = function(){

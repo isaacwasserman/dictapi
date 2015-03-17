@@ -1,16 +1,7 @@
-var numorlet = Math.floor((Math.random() * 2) + 1);
-
-var letters = ['0', 'a', 'b', 'c', 'd', 'e', 'f'];
-
-var newdig = function(){
-  var numorlet = Math.floor((Math.random() * 2) + 1);
-  if(numorlet == 1){
-    var digit = Math.floor((Math.random() * 9) + 1);
-  }
-  if(numorlet == 2){
-    var digit = letters[Math.floor((Math.random() * 6) + 1)];
-  }
-  return digit;
+var possiblehexadigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+var randomhexadigit = function(){
+  var randomforpossiblehexadigits = Math.floor((Math.random() * 16) + 0);
+  return possiblehexadigits[randomforpossiblehexadigits];
 }
-
-var color = '#' + newdig() + newdig() + newdig() + newdig() + newdig() + newdig();
+var randomcolor = '#' + randomhexadigit() + randomhexadigit() + randomhexadigit() + randomhexadigit() + randomhexadigit() + randomhexadigit();
+console.log(randomcolor);
