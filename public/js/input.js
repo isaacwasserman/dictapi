@@ -7,11 +7,11 @@ var init = function(){
 var myprint = function(){
     if (confirm("When printing make sure you turn off header and footer text, and turn on background images. Otherwise this will not look legit.") == true) {
         document.getElementById('frameinfo').style.display = 'none';
-        document.body.style.backgroundImage = 'none';
+        document.body.style.backgroundColor = '#ffffff';
         document.body.style.margin = '0px';
         print();
         document.getElementById('frameinfo').style.display = 'inline';
-        document.body.style.backgroundImage = 'url(http://raritea.com/raritea/images/heartless.gif)';
+        document.body.style.backgroundImage = randomcolor;
         document.body.style.margin = '8px'; 
     }
   }
