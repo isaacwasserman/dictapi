@@ -1,0 +1,32 @@
+body {
+  margin: 0px;
+}
+
+#canvas {
+  background-image: url(../images/page.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*
+img {
+  width: 100%;
+  height: 100%;
+}
+*/
+
+
+
+#vars {
+  height: 100%;
+  width: 100%;
+}
+
+vis {
+  font-size: 10%;
+}
+
+#data {
+  display: none;
+}

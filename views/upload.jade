@@ -1,0 +1,122 @@
+html
+  head
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+    script(src="js/color.js")
+    script(src="js/input.js")
+    script(src="js/jspdf.js")
+    script(src="js/jspdf.plugin.from_html.js")
+    script(src="js/jspdf.plugin.split_text_to_size.js")
+    script(src="js/jspdf.plugin.standard_fonts_metrics.js")
+    link(rel="stylesheet", href="css/input.css")
+    link(rel="stylesheet", href="css/fonts.css")
+    link(rel='icon', href='http://raritea.com/raritea/images/logo.ico')
+  body(onload="init();")
+    div#first
+      //div#header
+        img(src="images/fsmh.png")
+      select(id="grade")
+        option(value="6th") 6th
+        option(value="7th") 7th
+        option(value="8th") 8th
+      input#submit-grade(type="button" value="Go" onclick="addinputs();")
+      p Please Select Your Grade
+    form(id="words")
+      div#wordcontain
+        input(id="listnum", type="number", placeholder="List #")
+        br
+        br
+        div#six
+          input(id="input-1", type="text", placeholder="Word 1")
+          br
+          br
+          input(id="input-2", type="text", placeholder="Word 2")
+          br
+          br
+          input(id="input-3", type="text", placeholder="Word 3")
+          br
+          br
+          input(id="input-4", type="text", placeholder="Word 4")
+          br
+          br
+          input(id="input-5", type="text", placeholder="Word 5")
+          br
+          br
+          input(id="input-6", type="text", placeholder="Word 6")
+          br
+          br
+          input(id="input-7", type="text", placeholder="Word 7")
+          br
+          br
+          input(id="input-8", type="text", placeholder="Word 8")
+          br
+          br
+          input(id="input-9", type="text", placeholder="Word 9")
+          br
+          br
+          input(id="input-10", type="text", placeholder="Word 10")
+          br
+          br
+        div#seven
+          input(id="input-11", type="text", placeholder="Word 11")
+          br
+          br
+          input(id="input-12", type="text", placeholder="Word 12")
+          br
+          br
+          input(id="input-13", type="text", placeholder="Word 13")
+          br
+          br
+          input(id="input-14", type="text", placeholder="Word 14")
+          br
+          br
+          input(id="input-15", type="text", placeholder="Word 15")
+          br
+          br
+        div#eight
+          input(id="input-16", type="text", placeholder="Word 16")
+          br
+          br
+          input(id="input-17", type="text", placeholder="Word 17")
+          br
+          br
+          input(id="input-18", type="text", placeholder="Word 18")
+          br
+          br
+          input(id="input-19", type="text", placeholder="Word 19")
+          br
+          br
+          input(id="input-20", type="text", placeholder="Word 20")
+          br
+          br
+        input#submit(type="button", value="Submit", onclick="gather();")
+    div(id="frames")
+      iframe(id="frame1")
+      iframe(id="frame2")
+      iframe(id="frame3")
+      iframe(id="frame4")
+      iframe(id="frame5")
+      iframe(id="frame6")
+      iframe(id="frame7")
+      iframe(id="frame8")
+      iframe(id="frame9")
+      iframe(id="frame10")
+      iframe(id="frame11")
+      iframe(id="frame12")
+      iframe(id="frame13")
+      iframe(id="frame14")
+      iframe(id="frame15")
+      iframe(id="frame16")
+      iframe(id="frame17")
+      iframe(id="frame18")
+      iframe(id="frame19")
+      iframe(id="frame20")
+      div(id="frameinfo")
+        p
+          b A Note From Raritea -
+          br
+          span FSMH Vocab
+          span &reg;
+          span  does not currently support Roots, Prefixes or Suffixes
+          div#print
+            img#printimg(src="images/print.png" onclick="myprint();")
+          

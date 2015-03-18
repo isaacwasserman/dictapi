@@ -1,0 +1,31 @@
+{
+  "name": "dictapi",
+  "version": "0.0.1",
+  "description": "A simple api for retrieving definitions",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "~4.9.x",
+    "body-parser": "~1.8.1",
+    "jade": "1.8.x",
+    "cheerio": "0.18.0",
+    "request": "2.53.0",
+    "async": "0.9.*",
+    "nodefu": "1.1.x"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeekw/dictapi"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}

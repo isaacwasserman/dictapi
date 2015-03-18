@@ -1,0 +1,36 @@
+html
+  head
+    link(rel="stylesheet" href="css/pagestyle.css")
+    link(rel='icon', href='http://raritea.com/raritea/images/logo.ico')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+    script(src="js/draw.js")
+  
+  body(onload="init();")
+    
+    canvas(id="canvas", width="844", height="1094")
+    
+    div#data
+      
+      h1(id="word")= word
+      ul(id="definitions")
+        li= def1
+        li= def2
+        li= def3
+
+      ul(id="synonyms")
+        for synonym in synonyms
+          li= synonym
+
+      ul(id="antonyms")
+        for antonym in antonyms
+          li= antonym
+
+      ul(id="partsofspeech")
+        for part in pos
+          li= part
+
+      ul(id="sentences")
+        for sentence in sentences
+          li= sentence
+    
+    script(src="js/gatherdata.js")
